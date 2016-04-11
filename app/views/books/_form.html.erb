@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select(:category, options_for_select({ "Comic" => "Comic", "Sci Fi" => "Sci Fi", "Religious" => "Religious", "Health" => "Health",  "Sports" => "Sports",  "Politics" => "Politics",  "Travel" => "Travel",  "Food" => "Food"}),{include_blank: "Category"},{:class => 'category'}) %>
+    <%= f.select(:category, options_for_select({ "Comic" => "Comic", "Sci Fi" => "Sci Fi", "Religious" => "Religious", "Health" => "Health",  "Sports" => "Sports",  "Politics" => "Politics",  "Travel" => "Travel",  "Food" => "Food", "Others" => "Others"}),{include_blank: "Category"},{:class => 'category'}) %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
