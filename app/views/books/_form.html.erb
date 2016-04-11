@@ -1,0 +1,57 @@
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :authorId %><br>
+    <%= f.number_field :authorId %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select(:category, options_for_select({ "Comic" => "Comic", "Sci Fi" => "Sci Fi", "Religious" => "Religious", "Health" => "Health",  "Sports" => "Sports",  "Politics" => "Politics",  "Travel" => "Travel",  "Food" => "Food"}),{include_blank: "Category"},{:class => 'category'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :publishedDate %><br>
+    <%= f.text_field :publishedDate %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.select(:status, options_for_select({ "eBook" => "eBook", "Paperbind" => "Paperbind"}),{include_blank: "Status"},{:class => 'status'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.select(:condition, options_for_select({ "New" => "New", "Old" => "Old"}),{include_blank: "Condition"},{:class => 'condition'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :cover %><br>
+    <%= file_field_tag "cover" %>
+  </div>
+  <div class="field">
+    <%= f.label :book %><br>
+    <%= file_field_tag "book" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
