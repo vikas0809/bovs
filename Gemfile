@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',:git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+
 #mysql
 gem 'mysql2', '0.3.18'
 

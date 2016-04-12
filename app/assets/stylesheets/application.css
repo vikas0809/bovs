@@ -1,10 +1,23 @@
+*= require bootstrap-datepicker
 
-body {
-    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+
+
+
+rowedit{
+    margin-top: 70px;
+}
+
+.clear
+{
+    clear: both;
 }
 
 .slide-image {
     width: 100%;
+}
+
+.right{
+    float:right;
 }
 
 .carousel-holder {
