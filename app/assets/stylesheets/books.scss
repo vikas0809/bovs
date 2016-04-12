@@ -1,3 +1,35 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.form-inline .form-group { margin-right:10px; }
+.well-primary {
+color: rgb(255, 255, 255);
+background-color: rgb(66, 139, 202);
+border-color: rgb(53, 126, 189);
+}
+.glyphicon { margin-right:5px; }
+
+
+
+#mybody {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    margin-top : 70px;
+    max-width: 1100px;
+    min-width: 300px;
+}
+
+.floatleft{
+    float : left;
+}
+
+.floatright{
+    float : right;
+}
+
+.padup{
+    margin-top : -40px;
+}

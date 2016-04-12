@@ -23,6 +23,9 @@ module Workspace
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
     
+    config.web_console.whitelisted_ips = '174.113.170.48'
+    config.web_console.whiny_requests = false
+    
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end

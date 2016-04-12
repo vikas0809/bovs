@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>BOVS - Book Publisher Homepage</title>
-  
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+  <title>BOVS - Book Publisher | Add New Book</title>
    
    <%= favicon_link_tag(source='logo16x16.png') %>
   
@@ -21,11 +20,12 @@
   <%= csrf_meta_tags %>
   <%= javascript_include_tag :jquery %>
   <%= javascript_include_tag :bootstrap %>
+  <%= javascript_include_tag :book %>
   <%= stylesheet_link_tag "bootstrap" %>
   <%= stylesheet_link_tag "bootstrapmin" %>
+  <%= stylesheet_link_tag "books" %>
 </head>
-
-<body>
-<%= yield %>
+<body id="mybody"> 
+   <%= yield %>
 </body>
 </html>
