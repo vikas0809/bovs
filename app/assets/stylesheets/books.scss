@@ -11,7 +11,10 @@ border-color: rgb(53, 126, 189);
 }
 .glyphicon { margin-right:5px; }
 
-
+#showmin
+{
+   min-width: 200px;
+}
 
 #mybody {
     margin: auto;
@@ -19,7 +22,7 @@ border-color: rgb(53, 126, 189);
     padding: 10px;
     margin-top : 70px;
     max-width: 1100px;
-    min-width: 300px;
+    min-width: 250px;
 }
 
 .floatleft{
@@ -38,3 +41,153 @@ border-color: rgb(53, 126, 189);
 {
     color : #ffffff;
 }
+
+.txtjustify
+{
+    text-align : justify;
+}
+
+
+
+///////////////////////
+
+.coupon {
+    border: 3px dashed #bcbcbc;
+    border-radius: 10px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
+
+.coupon #head {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-height: 56px;
+}
+
+.coupon #footer {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#title .visible-xs {
+    font-size: 12px;
+}
+
+.coupon #title img {
+    font-size: 30px;
+    height: 30px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .coupon #title img {
+        height: 15px;
+    }
+}
+
+.coupon #title span {
+    float: right;
+    margin-top: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.coupon-img {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.items {
+    margin: 15px 0;
+}
+
+
+.number {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.container{
+     
+}
+
+#business-info ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#business-info ul li { 
+    display: inline;
+    text-align: center;
+}
+
+#business-info ul li span {
+    text-decoration: none;
+    padding: .2em 1em;
+}
+
+#business-info ul li span i {
+    padding-right: 5px;
+}
+
+.disclosure {
+    padding-top: 15px;
+    font-size: 11px;
+    color: #555;
+    text-align: justify;
+}
+
+.coupon-code {
+    color: #30303f;
+    font-size: 11px;
+}
+
+.exp {
+    color: #f34235;
+}
+
+.print {
+    font-size: 14px;
+    float: right;
+}
+
+
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", 
+    "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+}
+.row {
+    margin: 0px 0;
+}
+
+.center{
+    text-align : center;
+}
+
+#quicknav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+#quicknav ul li { 
+    display: inline; 
+}
+
+#quicknav ul li a {
+    text-decoration: none;
+    padding: .2em 1em;
+}
+
+
+.btn-default {
+    margin-bottom: 40px;
+}
+/*-------------------------------------------------------------*/

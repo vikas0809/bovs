@@ -1,54 +1,94 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <a class="navbar-brand" href="#">BOVS - BACKEND</a>
+    </div>
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class=""><a href="#">Link</a></li>
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Add Book</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Show my Books</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Edit Profile</a></li>
+            <li><a href="#">Payment Method</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @book.name %>
-</p>
-
-<p>
-  <strong>Authorid:</strong>
-  <%= @book.authorId %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @book.category %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
-
-<p>
-  <strong>Publisheddate:</strong>
-  <%= @book.publishedDate %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @book.status %>
-</p>
-
-<p>
-  <strong>Condition:</strong>
-  <%= @book.condition %>
-</p>
-
-<p>
-  <strong>Cover:</strong>
-  <%= @book.cover %>
-</p>
-
-<p>
-  <strong>Book:</strong>
-  <%= @book.book %>
-</p>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
+<div class="row" id="showmin">
+        <div class="col-md-9 col-md-offset-1">
+            <div class="panel panel-info coupon">
+              <div class="panel-heading" id="head">
+                <div class="panel-title" id="title">
+                    <i class="fa fa-github fa-2x"></i>
+                    <span class="hidden-xs"> <%= @book.name %></span>
+                    <span class="visible-xs"> <%= @book.name %></span>
+                </div>
+              </div>
+              <div class="panel-body">
+                <img src="http://i.imgur.com/e07tg8R.png" alt="<%= @book.cover %>" class="coupon-img img-rounded" style="width:100%;">
+                <div class="col-md-9">
+                    <ul class="items">
+                        <li>
+                          <strong>Category:</strong>
+                          <%= @book.category %>
+                        </li>
+                        <li><strong>Status:</strong>
+                          <%= @book.status %>
+                        </li>
+                        <li><strong>Condition:</strong>
+                          <%= @book.condition %>
+                        </li>
+                        <li><strong>Authorid:</strong>
+                          <%= @book.authorId %>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-warning">
+                    <div class="offer">
+                        <span class="number">$<%= @book.price %></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="disclosure"> <strong>Description:</strong><br> <%= @book.description %></p>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <div class="coupon-code">
+                    <span class="print">
+                        <a href="<%= @book.book %>" class="btn btn-link"><i class="fa fa-lg fa-print"></i><strong>Download URL</strong></a>
+                    </span>
+                </div>
+                <div class=""><strong>Published Date:</strong> <%= @book.publishedDate %></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

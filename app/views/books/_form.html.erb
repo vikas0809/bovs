@@ -8,8 +8,6 @@
             <div class="panel-body">
                 <div class="">
                     
-                    
-                    
                     <%= form_for(@book, :authenticity_token => true) do |f| %>
                               <% if @book.errors.any? %>
                                 <div id="error_explanation">
@@ -41,13 +39,13 @@
                                          <%= f.select(:category, options_for_select({ "Comic" => "Comic", "Sci Fi" => "Sci Fi", 
                                          "Religious" => "Religious", "Health" => "Health",  "Sports" => "Sports",  
                                          "Politics" => "Politics",  "Travel" => "Travel",  "Food" => "Food", "Others" => "Others"}),
-                                         {include_blank: "Category"},{:class => 'form-control'}) %>
+                                         {prompt: "Select a Category"},{:class => 'form-control'}) %>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <%= f.label :condition %><br>
-                                        <%= f.select(:condition, options_for_select({ "New" => "New", "Old" => "Old"}),{include_blank: "Condition"},{:class => 'form-control'}) %>
+                                        <%= f.select(:condition, options_for_select({ "New" => "New", "Old" => "Old"}),{prompt: "Select Condition"},{:class => 'form-control'}) %>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +53,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                      <%= f.label :status %><br>
-                                     <%= f.select(:status, options_for_select({ "eBook" => "eBook", "Paperbind" => "Paperbind"}),{include_blank: "Status"},{:class => 'form-control'}) %>
+                                     <%= f.select(:status, options_for_select({ "eBook" => "eBook", "Paperbind" => "Paperbind"}),{prompt: "Select Book format"},{:class => 'form-control'}) %>
                                     </div> 
                                     <div class="well well-sm">
                                         <div class="input-group">
