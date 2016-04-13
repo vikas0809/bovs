@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160412214844) do
+=======
+ActiveRecord::Schema.define(version: 20160412192053) do
+>>>>>>> e4c916f787a6d26ae30be5927d09a48e4f558ecc
 
   create_table "books", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -26,6 +30,32 @@ ActiveRecord::Schema.define(version: 20160412214844) do
     t.binary   "book",          limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "userId",      limit: 4
+    t.integer  "bookId",      limit: 4
+    t.integer  "quantity",    limit: 4
+    t.float    "price",       limit: 24
+    t.float    "tax",         limit: 24
+    t.float    "totalAmount", limit: 24
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "firstName",     limit: 255
+    t.string   "lastName",      limit: 255
+    t.string   "email",         limit: 255
+    t.string   "contactNumber", limit: 255
+    t.string   "streeAddress",  limit: 255
+    t.string   "city",          limit: 255
+    t.string   "province",      limit: 255
+    t.string   "postalCode",    limit: 255
+    t.string   "country",       limit: 255
+    t.integer  "userId",        limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
 end

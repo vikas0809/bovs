@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :orders
+  resources :users
   resources :books
   root 'welcome#index'
 
