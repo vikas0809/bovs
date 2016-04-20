@@ -4,6 +4,15 @@
     margin-top: 70px;
 }
 
+#justify
+{
+    text-align: justify;
+}
+
+#welcomethumbs{
+    width : 320px;
+    height : 150px;
+}
 
 .rowedit{
     margin-top: 70px;
