@@ -71,7 +71,7 @@
                       <td><%= book.status %></td>
                       <td><%= book.condition %></td>
                       <td><%= book.Image_Filename %></td>
-                      <td><%= book.book %></td>
+                      <td><%= book.Book_Filename %></td>
                       <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span> Show</button></td>
                   </tr>
                   <tr>
@@ -92,10 +92,12 @@
                                 :id => book.id) %>" alt="<%= book.id %>" class="thumbnail smallthumbs" />
                               </td>
                               <td class="txtjustify"><%= book.description %></td>
-                              <td><button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download-alt"></span> Download</button></td>
-                                <td><button class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span><%= link_to 'View ', book %></button></td>
-                                <td><button class="btn btn-default"><span class="glyphicon glyphicon-edit"></span><%= link_to 'Edit ', edit_book_path(book) %></button></td>
-                                <td><button class="btn btn-default"><span class="glyphicon glyphicon-trash"></span><%= link_to 'Delete ', book, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+                              <td>
+                                <a href="<%= url_for(:controller => "books",:action => "show_bookfile",:id => book.id) %>" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download-alt"></span>  Download</a>
+                              </td>
+                                <td><%= link_to raw("<span class=\"glyphicon glyphicon-eye-open\"></span>")+" View ", book, :class => "btn btn-default btn-sm" %></td>
+                                <td><%= link_to raw("<span class=\"glyphicon glyphicon-edit\"></span>")+' Edit ', edit_book_path(book), :class => "btn btn-default btn-sm" %></td>
+                                <td><%= link_to raw("<span class=\"glyphicon glyphicon-trash\"></span>") + 'Delete ', book, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-default btn-sm" %></td>
                             </tr>
                           </tbody>
                         </table>

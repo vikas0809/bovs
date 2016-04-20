@@ -58,11 +58,10 @@
                                     <div class="well well-sm">
                                         <div class="input-group">
                                             <%= f.label :cover %> <!--cover-->
-                                            <%= file_field_tag "cover", :class => 'form-control', :name => 'upload cover' %>
-                                            <%= f.file_field :file %>
+                                            <%= f.file_field :file, :class => 'form-control'%>
                                             <br>
                                             <%= f.label :book %>
-                                            <%= file_field_tag "book", :class => 'form-control', :name => 'upload book' %>
+                                            <%= f.file_field :filemain, :class => 'form-control'%>
                                         </div>
                                     </div>
                                 </div>

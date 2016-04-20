@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :books do
      get 'show_image', :on => :collection
+     get 'show_bookfile', :on => :collection
   end
   resources :books
   

@@ -7,17 +7,33 @@ class Book < ActiveRecord::Base
         self.Image_Format = @file.content_type
         self.cover = @file.read
       end
+      
+      @filemain = params.delete(:filemain)
+      if @filemain
+        self.Book_Filename = sanitize_filename(@filemain.original_filename)
+        self.Book_Format = @filemain.content_type
+        self.bookfile = @filemain.read
+      end
       super
     end
     
+    
     def initialize(params = {})
       @file = params.delete(:file)
+      @filemain = params.delete(:filemain)
       super
       if @file
         self.Image_Filename = sanitize_filename(@file.original_filename)
         self.Image_Format = @file.content_type
         self.cover = @file.read
       end
+      
+      if @filemain
+        self.Book_Filename = sanitize_filename(@filemain.original_filename)
+        self.Book_Format = @filemain.content_type
+        self.bookfile = @filemain.read
+      end
+      
     end
     private
       def sanitize_filename(filename)

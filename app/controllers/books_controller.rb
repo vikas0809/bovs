@@ -16,6 +16,11 @@ class BooksController < ApplicationController
       send_data(@book.cover,type: @book.Image_Format, filename: @book.Image_Filename, disposition: 'inline')
   end
   
+  def show_bookfile
+    @book = Book.find(params[:id])
+      send_data(@book.bookfile,type: @book.Book_Format, filename: @book.Book_Filename)
+  end
+  
   
   def show
     @book = Book.find(params[:id])
@@ -78,7 +83,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:name, :authorId, :category, :description, :price, :publishedDate, :status, :condition, :cover, :bookimg, :file)
+      params.require(:book).permit(:name, :authorId, :category, :description, :price, :publishedDate, :status, :condition, :cover, :bookfile, :file, :filemain)
     end
     
     private
