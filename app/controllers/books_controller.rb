@@ -11,8 +11,16 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.json
-  def show
+  def show_image
+    @book = Book.find(params[:id])
+      send_data(@book.cover,type: @book.Image_Format, filename: @book.Image_Filename, disposition: 'inline')
   end
+  
+  
+  def show
+    @book = Book.find(params[:id])
+  end
+  
 
   # GET /books/new
   def new
@@ -26,6 +34,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
+    
     @book = Book.new(book_params)
 
     respond_to do |format|
@@ -38,7 +47,8 @@ class BooksController < ApplicationController
       end
     end
   end
-
+  
+  
   # PATCH/PUT /books/1
   # PATCH/PUT /books/1.json
   def update
@@ -52,6 +62,9 @@ class BooksController < ApplicationController
       end
     end
   end
+  
+  
+  
 
   # DELETE /books/1
   # DELETE /books/1.json
@@ -63,14 +76,15 @@ class BooksController < ApplicationController
     end
   end
 
-  private
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def book_params
+      params.require(:book).permit(:name, :authorId, :category, :description, :price, :publishedDate, :status, :condition, :cover, :bookimg, :file)
+    end
+    
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:name, :authorId, :category, :description, :price, :publishedDate, :status, :condition, :cover, :book)
-    end
+    
 end
