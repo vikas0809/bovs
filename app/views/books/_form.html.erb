@@ -8,7 +8,7 @@
             <div class="panel-body">
                 <div class="">
                     
-                    <%= form_for(@book, :authenticity_token => true) do |f| %>
+                    <%= form_for(@book, :authenticity_token => true) do |f| %> 
                               <% if @book.errors.any? %>
                                 <div id="error_explanation">
                                   <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
@@ -57,8 +57,9 @@
                                     </div> 
                                     <div class="well well-sm">
                                         <div class="input-group">
-                                            <%= f.label :cover %>
+                                            <%= f.label :cover %> <!--cover-->
                                             <%= file_field_tag "cover", :class => 'form-control', :name => 'upload cover' %>
+                                            <%= f.file_field :file %>
                                             <br>
                                             <%= f.label :book %>
                                             <%= file_field_tag "book", :class => 'form-control', :name => 'upload book' %>
