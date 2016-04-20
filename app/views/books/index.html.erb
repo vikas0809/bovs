@@ -70,7 +70,7 @@
                       <td><%= book.price %></td>
                       <td><%= book.status %></td>
                       <td><%= book.condition %></td>
-                      <td><%= book.cover %></td>
+                      <td><%= book.Image_Filename %></td>
                       <td><%= book.book %></td>
                       <td><button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-eye-open"></span> Show</button></td>
                   </tr>
@@ -87,7 +87,10 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td>thumbnail</td>
+                              <td><img src="<%= url_for(:controller => "books", 
+                                :action => "show_image", 
+                                :id => book.id) %>" alt="<%= book.id %>" class="thumbnail smallthumbs" />
+                              </td>
                               <td class="txtjustify"><%= book.description %></td>
                               <td><button class="btn btn-default btn-sm"><span class="glyphicon glyphicon-download-alt"></span> Download</button></td>
                                 <td><button class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span><%= link_to 'View ', book %></button></td>
