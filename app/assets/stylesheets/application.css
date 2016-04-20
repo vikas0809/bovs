@@ -1,9 +1,11 @@
 *= require bootstrap-datepicker
 
+#main_body{
+    margin-top: 70px;
+}
 
 
-
-rowedit{
+.rowedit{
     margin-top: 70px;
 }
 

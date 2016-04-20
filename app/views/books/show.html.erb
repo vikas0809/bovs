@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <img src="http://i.imgur.com/e07tg8R.png" alt="<%= @book.cover %>" class="coupon-img img-rounded" style="width:100%;">
+                <%= ("<img src='data:\"" + @book.Image_Format + "\";base64,%s' class=\"coupon-img img-rounded thumbnail\">" % Base64.encode64(@book.cover)).html_safe %>
                 <div class="col-md-9">
                     <ul class="items">
                         <li>

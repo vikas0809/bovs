@@ -11,21 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160412214844) do
+=======
+ActiveRecord::Schema.define(version: 20160419214845) do
+>>>>>>> 4e8aa0eed4a5829916976f7891dfdf6f84825eb7
 
   create_table "books", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "authorId",      limit: 4
-    t.string   "category",      limit: 255
-    t.text     "description",   limit: 65535
-    t.float    "price",         limit: 24
-    t.string   "publishedDate", limit: 255
-    t.string   "status",        limit: 255
-    t.string   "condition",     limit: 255
-    t.binary   "cover",         limit: 65535
-    t.binary   "book",          limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "name",           limit: 255
+    t.integer  "authorId",       limit: 4
+    t.string   "category",       limit: 255
+    t.text     "description",    limit: 65535
+    t.float    "price",          limit: 24
+    t.string   "publishedDate",  limit: 255
+    t.string   "status",         limit: 255
+    t.string   "condition",      limit: 255
+    t.binary   "cover",          limit: 16777215
+    t.binary   "book",           limit: 65535
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "Image_Filename", limit: 255
+    t.string   "Image_Format",   limit: 255
   end
 
   create_table "orders", force: :cascade do |t|

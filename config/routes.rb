@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   
   resources :orders
   resources :users
+  resources :books do
+     get 'show_image', :on => :collection
+  end
   resources :books
+  
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
