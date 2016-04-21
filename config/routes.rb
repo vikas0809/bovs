@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :orders
   resources :users
+  devise_scope :user do
+    get "/sign_in" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+    get "/sign_up" => "devise/registrations#new"
+  end
   resources :books do
      get 'show_image', :on => :collection
      get 'show_bookfile', :on => :collection

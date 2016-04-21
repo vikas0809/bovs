@@ -1,0 +1,109 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+   <center>
+    <div id ="container">
+  		<div class="">
+  			<div class="panel panel-primary">
+  				<div class="panel-body">
+  				  <div class="form-group">
+							<h2>Create Account</h2><hr>
+						</div>
+  				  <div class="panel floatleft signup">
+      				<div class="panel-body">
+    						<div class="form-group">
+    							 <div class="field">
+                    <%= f.label :firstName, 'First Name' %>
+                    <%= f.text_field :firstName, :class => 'form-control',:placeholder => 'Enter your First Name' %>
+                  </div>
+    						</div>
+    						<div class="form-group">
+    						 <div class="field">
+                   <%= f.label :lastName, 'Last Name' %>
+                   <%= f.text_field :lastName, :class => 'form-control',:placeholder => 'Enter your Last Name' %>
+                 </div>
+    						</div>
+    						<div class="form-group">
+    							 <div class="field">
+                    <%= f.label :email, "Email Address" %>
+                    <%= f.email_field :email, autofocus: true, :class => "form-control",:placeholder => 'e.g JohnSmith@example.com' %>
+                  </div>
+    						</div>
+    						<div class="form-group">
+    						  <div class="field">
+                    <%= f.label :password %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control",:placeholder => 'Enter your secure password' %>
+                  </div>	
+    						</div>
+    						<div class="form-group">
+    							<div class="field">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control",:placeholder => 'Enter password again' %>
+                  </div>
+    						</div>
+      				</div>
+      			</div>
+      			
+      			<div class="panel floatleft signup">
+      				<div class="panel-body">
+      				  <div class="form-group">
+    							 <div class="field">
+                    <%= f.label :contactNumber,'Phone Number' %>
+                    <%= f.text_field :contactNumber, :class => 'form-control',:placeholder => 'e.g 222 333 4444' %>
+                  </div>
+    						</div>
+    						<div class="form-group">
+    						 <div class="field">
+                   <%= f.label :streeAddress,'Street Address' %>
+                   <%= f.text_field :streeAddress, :class => 'form-control',:placeholder => 'Enter Your Street Address' %>
+                 </div>
+    						</div>
+    						<div class="form-group">
+    							 <div class="field">
+                    <%= f.label :city, "City" %>
+                    <%= f.text_field :city, autofocus: true, :class => "form-control",:placeholder => 'Enter Your City' %>
+                  </div>
+    						</div>
+    						<div class="form-group">
+    							 <div class="field">
+                    <%= f.label :province, "Province" %>
+                    <%= f.text_field :province, autofocus: true, :class => "form-control",:placeholder => 'Enter Your Province e.g Ontario' %>
+                  </div>
+    						</div>
+    						
+    						<div class="form-group floatleft minibuttons">
+    							 <div class="field">
+                    <%= f.label :postalCode, "Postal Code" %>
+                    <%= f.text_field :postalCode, autofocus: true, :class => "form-control",:placeholder => 'e.g N2P 1X1' %>
+                  </div>
+    						</div>
+    						
+    						<div class="form-group right minibuttons marg">
+    							 <div class="field">
+                    <%= f.label :country, "Country" %>
+                    <%= f.text_field :country, autofocus: true, :class => "form-control",:placeholder => 'Enter your Country' %>
+                  </div>
+    						</div>
+      				  
+      				</div>
+      			</div>
+      			
+  				  <div class="form-group">
+							<div class="actions">
+                <%= f.submit "Create Your Account", :class => 'btn btn-success btn-block' %>
+              </div>
+						</div>
+						<p class="form-group">By creating an account, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+						<hr>
+						<p class='center'>Already have an account? <%= link_to "Log in", new_session_path(resource_name) %></p>
+
+  				</div>
+  			</div>
+  			
+  			
+  		</div>
+  	</div>
+  </center>
+<% end %>
