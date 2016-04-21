@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+ 
 
   protected
 
@@ -12,5 +13,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up){ |u| u.permit(:password_confirmation, :password, :email, :firstName, :lastName, :contactNumber, :streeAddress, :city, :province, :postalCode, :country) }
     devise_parameter_sanitizer.for(:account_update){ |e| e.permit(:password_confirmation, :current_password, :password, :email, :firstName, :lastName, :contactNumber, :streeAddress, :city, :province, :postalCode, :country) }
   end
-  
+   
 end

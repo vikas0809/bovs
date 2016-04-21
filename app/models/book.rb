@@ -8,6 +8,7 @@ class Book < ActiveRecord::Base
     validates :status,presence: true
     validates :publishedDate,presence: true
     validates :price,presence: true
+    
     def update(params = {})
       @file = params.delete(:file)
       if @file
