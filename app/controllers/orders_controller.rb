@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @orderbook = Book.find(params[:buybook])
   end
 
   # GET /orders/1/edit

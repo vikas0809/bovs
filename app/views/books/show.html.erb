@@ -78,6 +78,7 @@
                 <div class="col-md-3 text-warning">
                     <div class="offer">
                         <span class="number">$<%= @book.price %></span>
+                        <%= link_to 'Buy Now', new_order_path(buybook: @book.id), :class => 'btn btn-primary' %>
                     </div>
                 </div>
                 <div class="col-md-12">
