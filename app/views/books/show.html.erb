@@ -52,8 +52,12 @@
                 </div>
               </div>
               <div class="panel-body">
+<<<<<<< HEAD
                
                 <img src="http://i.imgur.com/e07tg8R.png" alt="<%= @book.cover %>" class="coupon-img img-rounded" style="width:100%;">
+=======
+                <%= ("<img src='data:\"" + @book.Image_Format + "\";base64,%s' class=\"coupon-img img-rounded thumbnail\">" % Base64.encode64(@book.cover)).html_safe %>
+>>>>>>> b9fa18955ca66bf2314ddf4a117ecf981445420b
                 <div class="col-md-9">
                     <ul class="items">
                         <li>
@@ -83,7 +87,10 @@
               <div class="panel-footer">
                 <div class="coupon-code">
                     <span class="print">
-                        <a href="<%= @book.book %>" class="btn btn-link"><i class="fa fa-lg fa-print"></i><strong>Download URL</strong></a>
+                        <a href="<%= url_for(:controller => "books", 
+                                :action => "show_bookfile", 
+                                :id => @book.id) %>" class="btn btn-link"><i class="fa fa-lg fa-print"></i><strong>Download URL</strong></a>
+                   <%= ("<a href='data:\"" + @book.Image_Format + "\";base64,%s' class=\"btn btn-link\"> <i class=\"fa fa-lg fa-print\"></i><strong>Preview Book</strong></a>" % Base64.encode64(@book.bookfile)).html_safe %>
                     </span>
                 </div>
                 <div class=""><strong>Published Date:</strong> <%= @book.publishedDate %></div>

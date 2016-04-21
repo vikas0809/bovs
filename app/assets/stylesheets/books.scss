@@ -28,6 +28,16 @@ border-color: rgb(53, 126, 189);
 .floatleft{
     float : left;
 }
+.smallthumbs
+{
+    width : 90%;
+    height : 100%;
+    max-width : 60px;
+    min-width : 60px;
+    max-height : 50px;
+    min-height : 50px;
+    
+}
 
 .floatright{
     float : right;

@@ -11,21 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160412214844) do
+=======
+ActiveRecord::Schema.define(version: 20160420040612) do
+>>>>>>> b9fa18955ca66bf2314ddf4a117ecf981445420b
 
   create_table "books", force: :cascade do |t|
-    t.string   "name",          limit: 255
-    t.integer  "authorId",      limit: 4
-    t.string   "category",      limit: 255
-    t.text     "description",   limit: 65535
-    t.float    "price",         limit: 24
-    t.string   "publishedDate", limit: 255
-    t.string   "status",        limit: 255
-    t.string   "condition",     limit: 255
-    t.binary   "cover",         limit: 65535
-    t.binary   "book",          limit: 65535
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "name",           limit: 255
+    t.integer  "authorId",       limit: 4
+    t.string   "category",       limit: 255
+    t.text     "description",    limit: 65535
+    t.float    "price",          limit: 24
+    t.string   "publishedDate",  limit: 255
+    t.string   "status",         limit: 255
+    t.string   "condition",      limit: 255
+    t.binary   "cover",          limit: 16777215
+    t.binary   "bookfile",       limit: 16777215
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "Image_Filename", limit: 255
+    t.string   "Image_Format",   limit: 255
+    t.string   "Book_Filename",  limit: 255
+    t.string   "Book_Format",    limit: 255
   end
 
   create_table "orders", force: :cascade do |t|
@@ -40,18 +48,30 @@ ActiveRecord::Schema.define(version: 20160412214844) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "firstName",     limit: 255
-    t.string   "lastName",      limit: 255
-    t.string   "email",         limit: 255
-    t.string   "contactNumber", limit: 255
-    t.string   "streeAddress",  limit: 255
-    t.string   "city",          limit: 255
-    t.string   "province",      limit: 255
-    t.string   "postalCode",    limit: 255
-    t.string   "country",       limit: 255
-    t.integer  "userId",        limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "firstName",              limit: 255
+    t.string   "lastName",               limit: 255
+    t.string   "contactNumber",          limit: 255
+    t.string   "streeAddress",           limit: 255
+    t.string   "city",                   limit: 255
+    t.string   "province",               limit: 255
+    t.string   "postalCode",             limit: 255
+    t.string   "country",                limit: 255
+    t.integer  "userId",                 limit: 4
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
