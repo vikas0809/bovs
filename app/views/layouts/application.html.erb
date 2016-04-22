@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#"><%= image_tag("logo40x40.png", :alt => "Book PUB", :style => "float:left;") %></a>
-                 <%= link_to 'BOVS - BACKEND', root_path, :class => "navbar-brand" %>
+                 <%= link_to 'BOVS - BOOKPUB', root_path, :class => "navbar-brand" %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -71,8 +71,6 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                  <li><%= link_to raw("<span class=\"glyphicon glyphicon-user\"></span> Sign Up"), new_user_registration_path %></li>
-                  <li>
                       <% if(user_signed_in?) %>
                          <ul class="nav navbar-nav navbar-right">
                           <li class="dropdown">
@@ -86,9 +84,9 @@
                           </li>
                         </ul>
                        <% else %>
-                         <%= link_to raw("<span class=\"glyphicon glyphicon-log-in\"></span> Login"), new_user_session_path %>
+                       <li><%= link_to raw("<span class=\"glyphicon glyphicon-user\"></span> Sign Up"), new_user_registration_path %></li>
+                         <li><%= link_to raw("<span class=\"glyphicon glyphicon-log-in\"></span> Login"), new_user_session_path %></li>
                        <% end %>
-                  </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

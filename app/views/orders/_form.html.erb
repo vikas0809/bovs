@@ -1,41 +1,64 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+<center>
+  <div id ="container">
+    <div class="panel-group" id="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                   <span class="glyphicon glyphicon-book"></span> BUY BOOK - <%= @orderbook.name %></a>
+                </h4>
+            </div>
+            <div class="panel-body">
+                <div class="">
 
-      <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                <%= form_for(@order) do |f| %>
+                  <% if @order.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+                
+                      <ul>
+                      <% @order.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                  
+                  <div class="row floatleft signup">
+                    <div class="col-md-12">
+                      <%= ("<img src='data:\"" + @orderbook.Image_Format + "\";base64,%s' class=\"order-img img-rounded thumbnail\">" % Base64.encode64(@orderbook.cover)).html_safe %>
+                    </div>
+                  </div>
+                  
+                  <div class="row right signup">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <%= f.label :userId, 'Author' %><br>
+                            <%= f.text_field :userId, :class => 'form-control', :disabled => "disabled"  %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :bookId, 'Book Reference #' %><br>
+                            <%= f.text_field :bookId, :class => 'form-control', :disabled => "disabled", :value => @orderbook.id  %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.label :quantity, 'Quantity' %><br>
+                            <%= f.number_field :quantity, :class => 'form-control', :placeholder => "Select Quantity" %>
+                        </div>
+                        
+                        <div class="form-group">
+                            <%= f.submit 'Order Book', :class => 'btn btn-success' %>
+                        </div>
+                        
+                    </div>
+                  </div>
+                  
+                <% end %>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :userId %><br>
-    <%= f.number_field :userId %>
   </div>
-  <div class="field">
-    <%= f.label :bookId %><br>
-    <%= f.number_field :bookId %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :tax %><br>
-    <%= f.text_field :tax %>
-  </div>
-  <div class="field">
-    <%= f.label :totalAmount %><br>
-    <%= f.text_field :totalAmount %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</center>
+  
+  
+  
