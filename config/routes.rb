@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   end
  
   get 'welcome/about' => 'welcome#about'
-  get 'welcome/services' => 'welcome#services'
   get 'welcome/contact' => 'welcome#contact'
   
    root 'welcome#index'
