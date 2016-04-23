@@ -26,12 +26,10 @@ module Workspace
     config.web_console.whitelisted_ips = '174.113.170.48'
     config.web_console.whiny_requests = false
      config.assets.enabled = true  
-     # Add the fonts path
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    
-    # Precompile additional assets
+     
+     # Precompile additional assets
     config.assets.precompile += %w( .svg .eot .woff .ttf )
-    
+    # Add the fonts path
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end
