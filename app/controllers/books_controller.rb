@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:show_image]
+  before_filter :usercheck, except: [:show, :show_image, :show_bookfile]
   
   skip_before_filter :verify_authenticity_token
   
@@ -21,8 +22,8 @@ class BooksController < ApplicationController
   
   def show_bookfile
     @book = Book.find(params[:id])
-    @userid = Order.where(':bookId => @book.id AND :userId => current_user.id')
-    if (current_user.userId == 3 || @book.authorId == current_user.id || @userid.find(current_user.id))
+   # @userid = Order.where(':bookId => @book.id AND :userId => current_user.id')
+    if (current_user.userId == 3 || @book.authorId == current_user.id)
         send_data(@book.bookfile,type: @book.Book_Format, filename: @book.Book_Filename)
     end
   end

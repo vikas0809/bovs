@@ -40,32 +40,30 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+<<<<<<< HEAD
                 <a class="navbar-brand" href="#"><%= image_tag("logo40x40.png", :alt => "Book PUB", :style => "float:left; width : 25px; height : 25px;") %></a>
+=======
+                <a class="navbar-brand" href="#"><%= image_tag("logo40x40.png", :alt => "Book PUB", :style => "float:left; width:25px; height:25px; margin-buttom : 10px;") %></a>
+>>>>>>> Bamidele_Workspace
                  <%= link_to 'BOVS - BOOKPUB', root_path, :class => "navbar-brand" %>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories<span class="caret"></span></a>
-                         <ul class="dropdown-menu">
-                            <li><a href="#">Comic</a></li>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Health</a></li>
-                            <li><a href="#">Magazine</a></li>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Cooking</a></li>
-                            <li><a href="#">Politics</a></li>
-                            <li><a href="#">Sci fi</a></li>
-                            <li><a href="#">Religious</a></li>
-                        </ul>
-                    </li>
+                    <li><%=link_to "Homepage", root_path %></li>
                     
                     <li>
+<<<<<<< HEAD
                        <%=link_to "About",  welcome_about_path %>
                     </li>
                     <li>
                          <%=link_to "Contact", welcome_contact_path %>
+=======
+                        <%=link_to "About",  welcome_about_path %>
+                    </li>
+                    <li>
+                        <a href="mailto:support@bookpub.com">Contact</a>
+>>>>>>> Bamidele_Workspace
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -74,6 +72,11 @@
                           <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Settings <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                              <% if current_user.userId > 1 %>
+                                  <li><%= link_to raw("<span class=\"glyphicon glyphicon-plus\"></span> Add Book"), new_book_path %></li>
+                                  <li><%= link_to raw("<span class=\"glyphicon glyphicon-folder-open\"></span> My Books"), books_path %></li>
+                              <% end %>
+                              <li><%= link_to raw("<span class=\"glyphicon glyphicon-book\"></span> Past Orders"), orders_path %></li>
                               <li><%= link_to raw("<span class=\"glyphicon glyphicon-edit\"></span> Edit Profile"), edit_user_registration_path %></li>
                               <li><a href="#"><span class="glyphicon glyphicon-credit-card"></span> Payment Method</a></li>
                               <li role="separator" class="divider"></li>

@@ -64,8 +64,17 @@
 		  	</div>
   		</div>
   		<div class="row">
+  			<div class="coupon-code">
+            </div>
   			<div class="span8 well invoice-thank">
   				<h5 style="text-align:center;">Thank You For Your Purchase!</h5>
+  				<center>
+  				<span class="print">
+	                <a href="<%= url_for(:controller => "books", 
+	                        :action => "show_bookfile", 
+	                        :id => @order.bookId) %>" class="btn btn-link"><i class="fa fa-lg fa-print"></i><strong>Download URL</strong></a>	
+	            </span>
+	            </center>
   			</div>
   		</div>
   		<div class="row">
@@ -81,9 +90,10 @@
   		</div>
     </div>
    </div>
+   <% if current_user.userId > 1 %>
     <%= link_to 'Back', orders_path, :class => 'btn btn-primary floatleft' %>
 		<%= link_to 'Delete', @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger right', :id => 'mycolor' %>
-
+   <% end %>
   </div>
 
 </center>

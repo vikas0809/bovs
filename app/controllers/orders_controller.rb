@@ -1,10 +1,32 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  
+  #layout 'backend'
+  
+  
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    
+    if(current_user.userId == 3)
+      @allorders = Order.all
+      @orders = Order.where(bookId: Book.select("bookId").where(authorId: current_user.id)) 
+      @active1 = 'active'
+      @mypurchase = Order.where(:userId=>current_user.id)
+    end
+    
+    if(current_user.userId == 2)
+      @orders = Order.where(bookId: Book.select("bookId").where(authorId: current_user.id)) #Order.where(':bookId IN @temporders')
+      @mypurchase = Order.where(:userId=>current_user.id)
+      @active2 = 'active'
+    end
+    
+    if(current_user.userId == 1)
+      @mypurchase = Order.where(:userId=>current_user.id)
+      @active3 = 'active'
+    end
+    
   end
 
   # GET /orders/1

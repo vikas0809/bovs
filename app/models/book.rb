@@ -1,5 +1,8 @@
 class Book < ActiveRecord::Base
+<<<<<<< HEAD
     
+=======
+>>>>>>> Bamidele_Workspace
     belongs_to :user
     validates :bookfile,presence: true
     validates :name,presence: true
