@@ -18,25 +18,7 @@
     max-width: 850px; 
     width : 80%;
     text-align: justify;
-}*= require bootstrap-datepicker
-
-
-#main_body{
-    margin-top: 70px;
 }
-
-#container
-{ 
-    max-width: 800px; 
-    text-align: left;
-}
-
-#container22
-{ 
-    max-width: 850px; 
-    text-align: left;
-}
-
 #panelmarg
 {
     margin-left:1px;
