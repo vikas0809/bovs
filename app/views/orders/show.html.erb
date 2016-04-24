@@ -1,34 +1,89 @@
-<p id="notice"><%= notice %></p>
+  <center>
+   <div class="container" id="container22">
+   	<div class = "panel panel-primary" >
+   		<div class = "panel-body" id="panelmarg">
+   	 <p id="notice"><%= notice %></p>
+    	<div class="row">
+    		<div class="span4">
+    			<address>
+			        <strong><%= current_user.firstName + " " + current_user.lastName %></strong><br>
+			        <%= current_user.streeAddress %><br>
+			        <%= current_user.city + "," + current_user.province + " " + current_user.postalCode %><br>
+			        <%= current_user.country %>
+		    	</address>
+    		</div>
+    		<div class="span4 well">
+    			<table class="invoice-head">
+    				<tbody>
+    					<tr>
+    						<td class="pull-right"><strong>Customer #</strong></td>
+    						<td><%=  @order.userId %></td>
+    					</tr>
+    					<tr>
+    						<td class="pull-right"><strong>Invoice #</strong></td>
+    						<td><%=  @order.id %></td>
+    					</tr>
+    					<tr>
+    						<td class="pull-right"><strong>Date</strong></td>
+    						<td><%= @order.created_at %></td>
+    					</tr>
+    				</tbody>
+    			</table>
+    		</div>
+    	</div>
+    	<div class="row">
+    		<div class="span8">
+    			<h2>Invoice</h2><hr>
+    		</div>
+    	</div>
+    	<div class="row">
+		  	<div class="span8 well invoice-body">
+		  		<table class="tble table-bordered">
+					<thead>
+						<tr>
+							<th class = "padding">Book Name</th>
+							<th class = "padding">Published Date</th>
+							<th class = "padding">Qty</th>
+							<th class = "padding">Amt</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class = "padding">#<%= @orderbook.id %> - <%= @orderbook.name %></td>
+						<td class = "padding"><%= @orderbook.publishedDate %></td>
+						<td class = "padding"><%= @order.quantity %></td>
+						<td class = "padding"><%= @order.price %></td>
+						</tr><tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td class = "padding"><strong>Total</strong></td>
+							<td class = "padding"><strong>$<%= @order.totalAmount %></strong></td>
+						</tr>
+					</tbody>
+				</table>
+		  	</div>
+  		</div>
+  		<div class="row">
+  			<div class="span8 well invoice-thank">
+  				<h5 style="text-align:center;">Thank You For Your Purchase!</h5>
+  			</div>
+  		</div>
+  		<div class="row">
+  	    	<div class="span2">
+  		        <strong>Author Cell#:</strong> <a href="tel:<%= @BookAuthor.contactNumber %>"><%= @BookAuthor.contactNumber %></a>
+  	    	</div>
+  	    	<div class="span4">
+  		        <strong>Author Email:</strong> <a href="mailto:<%= @BookAuthor.email %>"><%= @BookAuthor.email %></a>
+  	    	</div>
+  	    	<div class="span3">
+  		        <strong>URL:</strong> <a href="http://bovsbookpub.com">http://bovsbookpub.com</a>
+  	    	</div>
+  		</div>
+    </div>
+   </div>
+    <%= link_to 'Back', orders_path, :class => 'btn btn-primary floatleft' %>
+		<%= link_to 'Delete', @order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger right', :id => 'mycolor' %>
 
-<p>
-  <strong>Userid:</strong>
-  <%= @order.userId %>
-</p>
+  </div>
 
-<p>
-  <strong>Bookid:</strong>
-  <%= @order.bookId %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @order.quantity %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @order.price %>
-</p>
-
-<p>
-  <strong>Tax:</strong>
-  <%= @order.tax %>
-</p>
-
-<p>
-  <strong>Totalamount:</strong>
-  <%= @order.totalAmount %>
-</p>
-
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+</center>

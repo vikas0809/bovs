@@ -8,6 +8,7 @@ class Book < ActiveRecord::Base
     validates :status,presence: true
     validates :publishedDate,presence: true
     validates :price,presence: true
+   
     def update(params = {})
       @file = params.delete(:file)
       if @file
@@ -41,7 +42,6 @@ class Book < ActiveRecord::Base
         self.Book_Format = @filemain.content_type
         self.bookfile = @filemain.read
       end
-    
     end
     private
       def sanitize_filename(filename)

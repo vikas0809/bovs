@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:show_image]
+  
+  skip_before_filter :verify_authenticity_token
   
   layout 'backend'
 
@@ -19,12 +21,16 @@ class BooksController < ApplicationController
   
   def show_bookfile
     @book = Book.find(params[:id])
-      send_data(@book.bookfile,type: @book.Book_Format, filename: @book.Book_Filename)
+    @userid = Order.where(':bookId => @book.id AND :userId => current_user.id')
+    if (current_user.userId == 3 || @book.authorId == current_user.id || @userid.find(current_user.id))
+        send_data(@book.bookfile,type: @book.Book_Format, filename: @book.Book_Filename)
+    end
   end
   
   
   def show
     @book = Book.find(params[:id])
+    @author = User.find(@book.authorId)
   end
   
 
@@ -42,7 +48,9 @@ class BooksController < ApplicationController
   def create
     
     @book = Book.new(book_params)
-
+    
+    @book.authorId = current_user.id
+    
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }

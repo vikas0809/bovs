@@ -65,15 +65,15 @@
                         <li><strong>Condition:</strong>
                           <%= @book.condition %>
                         </li>
-                        <li><strong>Authorid:</strong>
-                          <%= @book.authorId %>
+                        <li><strong>Author Name:</strong>
+                          <%= @author.firstName + ' ' + @author.lastName %>
                         </li>
                     </ul>
                 </div>
                 <div class="col-md-3 text-warning">
                     <div class="offer">
                         <span class="number">$<%= @book.price %></span>
-                        <%= link_to 'Buy Now', new_order_path(buybook: @book.id), :class => 'btn btn-primary' %>
+                        <%= link_to 'Buy Now', new_order_path(buybook: @book.id), :class => 'btn btn-primary btn-lg' %>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -94,5 +94,3 @@
             </div>
         </div>
     </div>
-    <%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

@@ -33,15 +33,15 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <%= f.label :userId, 'Author' %><br>
-                            <%= f.text_field :userId, :class => 'form-control', :disabled => "disabled"  %>
+                            <%= f.text_field :userId, :class => 'form-control', :disabled => "disabled", :value =>  @BookAuthor.firstName + ' ' + @BookAuthor.lastName %>
                         </div>
                         <div class="form-group">
                             <%= f.label :bookId, 'Book Reference #' %><br>
-                            <%= f.text_field :bookId, :class => 'form-control', :disabled => "disabled", :value => @orderbook.id  %>
+                            <%= f.text_field :bookId, :class => 'form-control', :readonly => true, :value => @orderbook.id  %>
                         </div>
                         <div class="form-group">
                             <%= f.label :quantity, 'Quantity' %><br>
-                            <%= f.number_field :quantity, :class => 'form-control', :placeholder => "Select Quantity" %>
+                            <%= f.number_field :quantity, :class => 'form-control', :placeholder => "Select Quantity",:min => 1,:value => 1 %>
                         </div>
                         
                         <div class="form-group">

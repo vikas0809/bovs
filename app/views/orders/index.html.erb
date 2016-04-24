@@ -1,37 +1,117 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Orders</h1>
+<div class = "container">
+ <h1>Book Orders</h1>
+  <hr>
+  <div id="exTab2" class="">	
+    <ul class="nav nav-tabs">
+  			<li class="active">
+          <a  href="#1" data-toggle="tab">All Orders</a>
+  			</li>
+  			<li><a href="#2" data-toggle="tab">Books Sold</a>
+  			</li>
+  			<li><a href="#3" data-toggle="tab">Books Bought</a>
+  			</li>
+  	</ul>
 
-<table>
-  <thead>
-    <tr>
-      <th>Userid</th>
-      <th>Bookid</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th>Tax</th>
-      <th>Totalamount</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td><%= order.userId %></td>
-        <td><%= order.bookId %></td>
-        <td><%= order.quantity %></td>
-        <td><%= order.price %></td>
-        <td><%= order.tax %></td>
-        <td><%= order.totalAmount %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+  	<div class="tab-content ">
+  		<div class="tab-pane active" id="1">
+        <table class="table table-striped" id = "order_Address">
+          <thead>
+            <tr>
+              <th>Order#</th>
+              <th>Book Name</th>
+              <th>Qty</th>
+              <th>Order Date</th>
+              <th>Price</th>
+              <th>Tax</th>
+              <th>Total Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <th><%= Book.find(order.bookId).name %></th>
+                <td><%= order.quantity %></td>
+                <td><%= order.created_at %></td>
+                <td><%= number_to_currency(order.price) %></td>
+                <td><%= order.tax %></td>
+                <td><%= number_to_currency(order.totalAmount) %></td>
+                <td><%= link_to 'Show', order, :class => 'btn btn-info', :id => 'mycolor' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+  		</div>
+  				
+			<div class="tab-pane" id="2">
+        <table class="table table-striped" id = "order_Address">
+          <thead>
+            <tr>
+              <th>Order#</th>
+              <th>Book Name</th>
+              <th>Qty</th>
+              <th>Order Date</th>
+              <th>Price</th>
+              <th>Tax</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <th><%= Book.find(order.bookId).name %></th>
+                <td><%= order.quantity %></td>
+                <td><%= order.created_at %></td>
+                <td><%= number_to_currency(order.price) %></td>
+                <td><%= order.tax %></td>
+                <td><%= link_to 'Show', order, :class => 'btn btn-info', :id => 'mycolor' %></td>
+                <td><%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-primary', :id => 'mycolor'%></td>
+                <td><%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', :id => 'mycolor' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+  		</div>
+  		
+  		
+  		<div class="tab-pane" id="3">
+        <table class="table table-striped" id = "order_Address">
+          <thead>
+            <tr>
+              <th>Order#</th>
+              <th>Book Name</th>
+              <th>Qty</th>
+              <th>Order Date</th>
+              <th>Price</th>
+              <th>Tax</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <% @orders.each do |order| %>
+              <tr>
+                <td><%= order.id %></td>
+                <th><%= Book.find(order.bookId).name %></th>
+                <td><%= order.quantity %></td>
+                <td><%= order.created_at %></td>
+                <td><%= number_to_currency(order.price) %></td>
+                <td><%= order.tax %></td>
+                <td><%= link_to 'Show', order, :class => 'btn btn-info', :id => 'mycolor' %></td>
+                <td><%= link_to 'Edit', edit_order_path(order), :class => 'btn btn-primary', :id => 'mycolor'%></td>
+                <td><%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger', :id => 'mycolor' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+  		</div>
+  		
+  	</div>
+  </div>
+</div>

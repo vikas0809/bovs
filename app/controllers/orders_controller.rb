@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /orders
   # GET /orders.json
   def index
@@ -10,23 +10,33 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @orderbook = Book.find(Order.find(params[:id]).bookId)
+    @BookAuthor = User.find(@orderbook.authorId)
   end
 
   # GET /orders/new
   def new
-    @order = Order.new
-    @orderbook = Book.find(params[:buybook])
+    if(params[:buybook].present?)
+        @order = Order.new
+        @orderbook = Book.find(params[:buybook])
+        @BookAuthor = User.find(Book.find(params[:buybook]).authorId)
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /orders/1/edit
   def edit
+    @orderbook = Book.find(Order.find(params[:id]).bookId)
+    @BookAuthor = User.find(Book.find(@orderbook.id).authorId)
   end
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
+    @order.userId = current_user.id
+    
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -70,6 +80,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:userId, :bookId, :quantity, :price, :tax, :totalAmount)
+        params.require(:order).permit(:userId, :bookId, :quantity, :price, :tax, :totalAmount)
     end
 end
