@@ -6,5 +6,5 @@ development:
   host : <%= ENV['IP'] %>
   
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
