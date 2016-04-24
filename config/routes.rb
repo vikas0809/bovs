@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
   resources :books
   
+  get 'welcome/about' => 'welcome#about'
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

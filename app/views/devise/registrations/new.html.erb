@@ -43,6 +43,13 @@
                     <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control",:placeholder => 'Enter password again' %>
                   </div>
     						</div>
+    						
+    						<div class="form-group">
+    							 <div class="field">
+               <%= f.label :userId, "Postal Code" %>
+               <%= f.select(:userId, options_for_select({ "Reader" => "1", "Publisher" => "2"}),{prompt: "Select Account Type"},{:class => 'form-control'}) %>
+           </div>
+    						</div>
       				</div>
       			</div>
       			
@@ -73,14 +80,14 @@
                   </div>
     						</div>
     						
-    						<div class="form-group floatleft minibuttons">
+    						<div class="form-group">
     							 <div class="field">
-                    <%= f.label :postalCode, "Postal Code" %>
-                    <%= f.text_field :postalCode, autofocus: true, :class => "form-control",:placeholder => 'e.g N2P 1X1' %>
-                  </div>
+               <%= f.label :postalCode, "Postal Code" %>
+               <%= f.text_field :postalCode, autofocus: true, :class => "form-control",:placeholder => 'e.g N2P 1X1' %>
+            </div>
     						</div>
     						
-    						<div class="form-group right minibuttons marg">
+    						<div class="form-group ">
     							 <div class="field">
                     <%= f.label :country, "Country" %>
                     <%= f.text_field :country, autofocus: true, :class => "form-control",:placeholder => 'Enter your Country' %>

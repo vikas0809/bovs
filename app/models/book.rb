@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-    
+    belongs_to :user
     validates :bookfile,presence: true
     validates :name,presence: true
     validates :description,presence: true

@@ -1,5 +1,7 @@
 class Order < ActiveRecord::Base
     
+    belongs_to :user
+    
     validates :quantity, presence: true
     validates :quantity, numericality: { only_integer: true, :allow_nil => false }
    
@@ -20,4 +22,5 @@ class Order < ActiveRecord::Base
             self.totalAmount = self.Price + (self.Price * self.Tax)
         return self.totalAmount
     end
+    
 end
