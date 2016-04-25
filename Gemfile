@@ -12,6 +12,7 @@ gem 'mysql2', '0.3.18'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
